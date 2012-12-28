@@ -121,5 +121,20 @@ describe "AuthenticationPages" do
         specify { response.should redirect_to(root_path) }
       end
     end
+
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before { sign_in user }
+
+      describe "visiting Users#new" do
+        before { get new_user_path }
+        specify { response.should redirect_to(root_path) }
+      end
+
+      describe "submitting a POST request to Users#create action" do
+        before { post users_path }
+        specify { response.should redirect_to(root_path) }
+      end
+    end
   end
 end
