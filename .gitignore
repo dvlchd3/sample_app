@@ -14,6 +14,9 @@
 /log/*.log
 /tmp
 
+# Ignore IDE files
+.idea
+
 # Ignore other unneeded files.
 doc/
 *.swp
