@@ -45,6 +45,16 @@ describe "AuthenticationPages" do
     end
   end
 
+  describe "before signin" do
+    before { visit root_path }
+
+    it { should_not have_link 'Users' }
+    it { should_not have_link 'Profile' }
+    it { should_not have_link 'Settings' }
+    it { should_not have_link 'Sign out' }
+    it { should have_link 'Sign in', href: signin_path }
+  end
+
   describe "authorization" do
 
     describe "for non-signed-in users" do
