@@ -122,6 +122,17 @@ describe "AuthenticationPages" do
       end
     end
 
+    describe "as admin user" do
+      let(:user) { FactoryGirl.create(:admin) }
+
+      before { sign_in user }
+
+      describe "submitting a DELETE request to the Users#destroy action" do
+        before { delete user_path(user) }
+        specify { response.should redirect_to(user_path(user)) }
+      end
+    end
+
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
