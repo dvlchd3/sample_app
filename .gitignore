@@ -15,7 +15,7 @@
 /tmp
 
 # Ignore IDE files
-#.idea
+.idea/*
 
 # Ignore other unneeded files.
 doc/
